@@ -20,14 +20,12 @@
                         <thead>
                         <tr>
                             <th>No.</th>
-                            <!-- <th>Gambar</th> -->
                             <th>Nama</th>
-                            <!-- <th>Lokasi</th> -->
                             <th>Deskripsi</th>
-                            <!-- <th>Tipe</th> -->
                             <th>Alamat</th>
                             <th>Jam Operasional</th>
                             <th>Harga Tiket</th> 
+                            <th>Rating</th>
                             <th>Opsi</th>
                         </tr>
                         </thead>
@@ -35,15 +33,12 @@
                         @foreach($wisatas as $key => $wisata)
                             <tr>
                                 <td>{{$key+1}}</td>
-                                <!-- <td>{{$wisata->image}}</td> -->
                                 <td>{{$wisata->title}}</td>
-                                <!-- <td>{{$wisata->locate}}</td> -->
                                 <td>{{$wisata->description}}</td>
-                                <!-- <td>{{$wisata->type}}</td> -->
                                 <td>{{$wisata->location}}</td>
                                 <td>{{$wisata->duration}}</td>
                                 <td>{{$wisata->price}}</td>
-                                <!-- <td>{{$wisata->maps}}</td> -->
+                                <td>{{$wisata->rate}}</td>
                                 <td>
                                     <a href="{{route('wisatas.edit', $wisata)}}" class="btn btn-primary btn-xs">
                                         Edit

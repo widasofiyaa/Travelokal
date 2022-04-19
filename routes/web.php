@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\WisatasController;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,12 +28,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home')->middleware('auth');
+Route::get('/index', function() {
+    return view('index');
+})->name('index')->middleware('auth');
 
 Route::resource('users', \App\Http\Controllers\UserController::class)
     ->middleware('auth');
 
 // Route::get('destination', [WisatasController::class, 'index']);
 Route::resource('wisatas', \App\Http\Controllers\WisatasController::class);
+// Route::post('login-user', [LoginController::class, 'login_url'])->name('authLogin');

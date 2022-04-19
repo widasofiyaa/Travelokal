@@ -21,5 +21,6 @@ class Wisata extends Model
         'duration',
         'price',
         'maps',
+        'rate',
     ];
 }

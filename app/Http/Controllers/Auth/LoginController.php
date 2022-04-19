@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
+use Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -40,17 +41,21 @@ class LoginController extends Controller
         $this->middleware('guest:user')->except('logout');
     }
 
-    public function adminLogin(Request $request)
+    public function login_url(Request $request)
     {
         $this->validate($request, [
             'email'   => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
         ]);
 
-        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/wisatas');
-        }
+        if (Auth::guard('web')->attempt(['level'=> $request->level, 'email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+            if ([$level -> admin]){
+                return redirect()->intended('/wisatas');
+            } else {
+                return redirect()->intended('/index');
+            }
+            
+        } 
         return back()->withInput($request->only('email', 'remember'));
     }
 }

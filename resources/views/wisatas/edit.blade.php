@@ -56,7 +56,10 @@
                         <label for="exampleInputMaps">Maps</label>
                         <input type="text" class="form-control" id="exampleInputMaps" placeholder="Lokasi di Google Maps" name="maps" value="{{$wisata->maps ?? old('maps')}}">
                     </div>
-
+                    <div class="form-group">
+                        <label for="exampleInputRate">Rating</label>
+                        <input type="number" step=0.1 class="form-control" id="exampleInputRate" placeholder="Rating Wisata" name="rate" value="{{$wisata->rate ?? old('rate')}}">
+                    </div>
                 </div>
 
                 <div class="card-footer">

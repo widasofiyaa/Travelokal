@@ -36,17 +36,7 @@ class WisatasController extends Controller
     }
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'image' => 'required',
-        //     'title' => 'required',
-        //     'locate' => 'required',
-        //     'description' => 'required',
-        //     'type' => 'required',
-        //     'location' => 'required',
-        //     'duration' => 'required',
-        //     'price' => 'required',
-        //     'maps' => 'required',
-        // ]);
+
         $wisata = Wisata::find($id);
         $wisata->title = $request->input('title');
         $wisata->image = $request->image;
@@ -57,6 +47,7 @@ class WisatasController extends Controller
         $wisata->duration = $request->duration;
         $wisata->price = $request->price;
         $wisata->maps = $request->maps;
+        $wisata->rate = $request->rate;
         $wisata->save();
         return redirect()->route('wisatas.index')
             ->with('success_message', 'Berhasil mengubah wisata');
@@ -79,10 +70,11 @@ class WisatasController extends Controller
         //     'duration' => 'required',
         //     'price' => 'required',
         //     'maps' => 'required',
+        //     'rate' => 'required'
         // ]);
 
         $array = $request->only([
-            'image', 'title', 'locate','description','type','location','duration','price','maps'
+            'image', 'title', 'locate','description','type','location','duration','price','maps','rate'
         ]);
         
         $wisata = Wisata::create($array);

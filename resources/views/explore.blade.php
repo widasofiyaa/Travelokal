@@ -66,17 +66,15 @@
                     <div class="explore-detail">
                         <div class="description">
                             <p>{{ $wisata->description }}</p>
-                            <!-- <p>Cafe yang nyaman, tempatnya luas terdiri dari 2 lantai dan dipenuhi dengan dekorasi yang cantik dan asri, Memiliki parkiran yang cukup luas . Sangat cocok untuk menikmati hidangan dengan rekan dan keluarga.</p> -->
                         </div>
                         <div class="general-info">
                             <ul>
                                 <li>Tipe - <span>{{ $wisata->type }}</span></li>
                                 <li>Lokasi - <span>{{ $wisata->location }}</span></li>
-                                <!-- <li>Lokasi - <span>Jl. Raya Puncak - Gadog No.26, Ciloto, Kec. Cipanas, Kabupaten Cianjur, Jawa Barat 43253</span></li> -->
                                 <li>Harga Tiket - <span>Rp {{ $wisata->price }}</span></li>
                                 <li>Jam Operasional - <span>{{ $wisata->duration }}</span></li>
                                 <li>Lihat Peta - <span><a href="{{ $wisata->maps }}">{{ $wisata->title }}</a></span></li>
-                                <!-- <li>Lihat Menu - <span><a href="https://drive.google.com/drive/folders/1Xvu31OVUNlfAylKOhXiksU6Vp_IzJXkK?usp=sharing" target="_blank" rel="noopener noreferrer">Cafe and Kitchen Mamifokobo's Menu</a></span></li> -->
+                                <li>Rating - <span>{{ $wisata->rate }}</span></li>
                             </ul>
                         </div>
                     </div>

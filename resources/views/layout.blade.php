@@ -29,6 +29,9 @@
                     <li class="nav-item">
                         <a href="{{ url('/index/#galery') }}" class="nav-link">Galeri</a>
                     </li>
+                    <li>
+                        <a href="{{ url('/login') }}" class="nav-link">Login</a>
+                    </li>
                 </ul>
                 <i class="ri-close-fill nav-close" id="nav-close"></i>
             </div>
